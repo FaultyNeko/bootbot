@@ -1,4 +1,5 @@
 from stats import word_count, unique_letter_count, sort_on
+import sys
 
 def get_book_text(path):
     with open(path) as f:
@@ -8,8 +9,10 @@ def get_book_text(path):
 
 
 if __name__ == "__main__":
-    book_path = "books/frankenstein.txt"
-    
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    book_path = sys.argv[1]
     print("============ BOOKBOT ============")
     print(f"Analyzing book found at {book_path}...")
     print("----------- Word Count ----------")
